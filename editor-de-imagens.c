@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "./funcoes/ler_imagem.h"
+#include "funcoes.h"
+
 
 int main()
-{
-
+{  
 }

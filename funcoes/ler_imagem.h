@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-unsigned char** ler_imagem(char caminho[])
+
+
+struct imagem ler_imagem(char caminho[])
 {
     FILE* ptr;
     ptr = fopen(caminho, "r"); // ler imagem no caminho selecionado
@@ -19,23 +21,27 @@ unsigned char** ler_imagem(char caminho[])
     char largura[10], altura[10];
     fscanf(ptr, "%s %s", largura, altura);
 
+
+    struct imagem imagem; // cria struct 
+
+    
     int int_largura = atoi(largura);
     int int_altura = atoi(altura);
+    imagem.n_linhas = int_altura;
+    imagem.n_colunas = int_largura;
 
-    unsigned char ** arr = (unsigned char**) malloc(int_altura * sizeof(unsigned char*)); //cria matriz baseada nos parâmetros da segunda linha
+    imagem.matriz = (unsigned char**) malloc(int_altura * sizeof(unsigned char*)); //cria matriz baseada nos parâmetros da segunda linha
     
     for (int i = 0; i < int_altura; i++) {
-        arr[i] = (unsigned char*) malloc(int_largura* sizeof(unsigned char));   // alocando memória para as colunas
+        imagem.matriz[i] = (unsigned char*) malloc(int_largura* sizeof(unsigned char));   // alocando memória para as colunas
     }
     
-    
-
-    fscanf(ptr, "%u ", &arr[0][0]); //Solução temporária: alocar o valor máximo de cinza na posição (0,0) da matriz para ser apagado em seguida
+    fscanf(ptr, "%u ", &imagem.matriz[0][0]); //Solução temporária: alocar o valor máximo de cinza na posição (0,0) da matriz para ser apagado em seguida
 
     for(int linha = 0; linha < atoi(altura); linha++){
         for(int coluna = 0; coluna < atoi(largura); coluna++){
-            fscanf(ptr, "%u ", &arr[linha][coluna]); //preenchendo valores
-            // printf("%u, ", arr[linha][coluna]);
+            fscanf(ptr, "%u ", &imagem.matriz[linha][coluna]); //preenchendo valores
+            // printf("%u, ", imagem.matriz[linha][coluna]);
         }
         
         // printf("\n");
@@ -43,6 +49,6 @@ unsigned char** ler_imagem(char caminho[])
     
     fclose(ptr);
 
-    return arr;
+    return imagem;
 }
 
