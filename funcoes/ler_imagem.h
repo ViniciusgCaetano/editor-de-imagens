@@ -41,10 +41,7 @@ struct imagem ler_imagem(char caminho[])
     for(int linha = 0; linha < atoi(altura); linha++){
         for(int coluna = 0; coluna < atoi(largura); coluna++){
             fscanf(ptr, "%u ", &imagem.matriz[linha][coluna]); //preenchendo valores
-            // printf("%u, ", imagem.matriz[linha][coluna]);
-        }
-        
-        // printf("\n");
+        }   
     }
     
     fclose(ptr);
