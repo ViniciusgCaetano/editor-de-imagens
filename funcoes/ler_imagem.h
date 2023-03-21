@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
-
 struct imagem ler_imagem(char caminho[])
 {
     FILE* ptr;
@@ -36,7 +34,7 @@ struct imagem ler_imagem(char caminho[])
         imagem.matriz[i] = (unsigned char*) malloc(int_largura* sizeof(unsigned char));   // alocando memória para as colunas
     }
     
-    fscanf(ptr, "%u ", &imagem.matriz[0][0]); //Solução temporária: alocar o valor máximo de cinza na posição (0,0) da matriz para ser apagado em seguida
+    fscanf(ptr, "%u ", &imagem.max_cinza); //Solução temporária: alocar o valor máximo de cinza na posição (0,0) da matriz para ser apagado em seguida
 
     for(int linha = 0; linha < atoi(altura); linha++){
         for(int coluna = 0; coluna < atoi(largura); coluna++){
