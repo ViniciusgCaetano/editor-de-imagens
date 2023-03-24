@@ -20,7 +20,7 @@ struct imagem leitura_imagem(){
     int flag_imagem_inexistente = 1;
     struct imagem imagem_input;
     do{
-        printf("Forneça o caminho para a imagem a ser editada: \n : ");
+        printf("Forneça o caminho para a imagem a ser editada (Escreva P para o padrão [./imagens_teste/pgm/image1.pgm]): \n : ");
         char image_path[MAX_LIMIT];
         scanf("%s", &image_path);
         imagem_input = ler_imagem(image_path);
@@ -79,7 +79,7 @@ int aplicar_filtro(int filtro_selecionado, struct imagem imagem_input){
 
 
 int gravacao(int filtro_selecionado, struct imagem imagem_input){
-    printf("Forneça o caminho para salvar a imagem: \n : ");
+    printf("Forneça o caminho para salvar a imagem (Escreva P para o padrão [./results/resultado.pgm]): \n : ");
     char caminho_para_guardar[MAX_LIMIT];
     scanf("%s", &caminho_para_guardar);
     gravar_imagem(imagem_input, caminho_para_guardar);

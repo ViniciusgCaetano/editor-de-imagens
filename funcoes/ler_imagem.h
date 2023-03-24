@@ -5,8 +5,10 @@
 struct imagem ler_imagem(char caminho[])
 {
     FILE* ptr;
+    if(strcmp("P",caminho) == 0){
+        caminho = "./imagens_teste/pgm/image1.pgm";
+    }
     ptr = fopen(caminho, "r"); // ler imagem no caminho selecionado
-
 
     struct imagem imagem; // cria struct 
     if (NULL == ptr) {
@@ -22,8 +24,6 @@ struct imagem ler_imagem(char caminho[])
 
     char largura[10], altura[10];
     fscanf(ptr, "%s %s", largura, altura);
-
-    
     
     int int_largura = atoi(largura);
     int int_altura = atoi(altura);

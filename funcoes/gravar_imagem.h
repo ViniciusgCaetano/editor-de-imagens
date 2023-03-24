@@ -6,7 +6,9 @@
 void gravar_imagem(struct imagem input, char caminho[])
 {
     FILE * fPtr; // Ponteiro para arquivo
-
+    if(strcmp("P",caminho) == 0){
+        caminho = "./results/resultado.pgm";
+    }
     fPtr = fopen(caminho, "w"); // abrir arquivo para escrita
     
     if(fPtr == NULL) // validação para ver se a abertura do arquivo funcionou
