@@ -3,3 +3,5 @@
 #include "./funcoes/gravar_imagem.h"
 #include "./filtros/negativo.h"
 #include "./filtros/espelhamento.h"
+#include "./filtros/borramento.h"
+#include "./filtros/brightening.h"

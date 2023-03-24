@@ -17,8 +17,6 @@ void printFilterMenu()
 
 int main()
 {
-    ler_imagem("./imagens_teste/pgm/image1.pgm");
-
     printf("---> Bem vindo ao Editor de Imagens! <---\n\n");
 
     printf("Forneça o caminho para a imagem a ser editada: \n : ");
@@ -45,23 +43,29 @@ int main()
         valid_filter_selected = 1;
     }
 
-    switch (selected_filter)
-    {
-        case 1: //Negativo
-            negativo(imagem_input);
-        case 2: //Espelhamento
-            espelhamento(imagem_input);
-        case 3: //Borramento
-            break;
-        case 4: //Brightening
-            break;
-    }
-    
     printf("Forneça o caminho para salvar a imagem: \n : ");
     char caminho_para_guardar[MAX_LIMIT];
     scanf("%s", &caminho_para_guardar);
 
-    gravar_imagem(imagem_input, caminho_para_guardar);
+    switch (selected_filter)
+    {
+        case 1: //Negativo
+            negativo(imagem_input);
+            gravar_imagem(imagem_input, caminho_para_guardar);
+            return 0;
+        case 2: //Espelhamento
+            espelhamento(imagem_input);
+            gravar_imagem(imagem_input, caminho_para_guardar);
+            return 0;
+        case 3: //Borramento
+            struct imagem imagem_borramento = borramento(imagem_input);
+            gravar_imagem(imagem_borramento, caminho_para_guardar);
+            return 0;
+        case 4: //Brightening
+            struct imagem imagem_brightening = brightening(imagem_input);
+            gravar_imagem(imagem_brightening, caminho_para_guardar);
+            return 0;
+    }
 
     return 0;
 }
