@@ -24,13 +24,13 @@ int main()
     printf("Forneça o caminho para a imagem a ser editada: \n : ");
     char image_path[MAX_LIMIT];
     scanf("%s", &image_path);
+
     struct imagem imagem_input = ler_imagem(image_path);
-    
-    //TODO: error handling caso seja um path inválido ou a imagem não exista
 
     int valid_filter_selected = 0;
     int selected_filter;
     printFilterMenu();
+
     while (!valid_filter_selected)
     {
         printf("Selecione o filtro desejado (ex: 2): ");
@@ -38,8 +38,8 @@ int main()
 
         if (selected_filter < 0 || selected_filter > 4)
         {
-        printf("Filtro escolhido não é válido!\n");
-        continue;
+            printf("Filtro escolhido não é válido!\n");
+            continue;
         }
 
         valid_filter_selected = 1;
@@ -52,14 +52,15 @@ int main()
         case 2: //Espelhamento
             espelhamento(imagem_input);
         case 3: //Borramento
-        break;
+            break;
         case 4: //Brightening
-        break;
+            break;
     }
     
-    printf("Forneça o caminho para salvar a imagem: \n");
+    printf("Forneça o caminho para salvar a imagem: \n : ");
     char caminho_para_guardar[MAX_LIMIT];
     scanf("%s", &caminho_para_guardar);
+
     gravar_imagem(imagem_input, caminho_para_guardar);
 
     return 0;

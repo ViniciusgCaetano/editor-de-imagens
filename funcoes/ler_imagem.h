@@ -19,9 +19,7 @@ struct imagem ler_imagem(char caminho[])
     char largura[10], altura[10];
     fscanf(ptr, "%s %s", largura, altura);
 
-
     struct imagem imagem; // cria struct 
-
     
     int int_largura = atoi(largura);
     int int_altura = atoi(altura);

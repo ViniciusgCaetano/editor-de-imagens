@@ -11,7 +11,6 @@ void gravar_imagem(struct imagem input, char caminho[])
     
     if(fPtr == NULL) // validação para ver se a abertura do arquivo funcionou
     {
-       
         printf("Erro ao escrever arquivo.\n");
         exit(EXIT_FAILURE);
     }
@@ -28,7 +27,6 @@ void gravar_imagem(struct imagem input, char caminho[])
         }
         fprintf(fPtr,"\n");
     }
-
 
     /* Fechar arquivo */
     fclose(fPtr);
