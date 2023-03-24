@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct imagem brightening(struct imagem imagem_input)
+void brightening(struct imagem imagem_input)
 {
     struct imagem img_nova;
     img_nova.n_linhas = imagem_input.n_linhas;
@@ -32,5 +32,5 @@ struct imagem brightening(struct imagem imagem_input)
         }
     }
 
-    return img_nova;
+    imagem_input.matriz = img_nova.matriz;
 }
