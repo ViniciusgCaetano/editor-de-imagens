@@ -31,6 +31,12 @@ void brightening(struct imagem imagem_input)
             img_nova.matriz[i][j] = max_pixel;
         }
     }
-
-    imagem_input.matriz = img_nova.matriz;
+    for(int i=0; i < imagem_input.n_linhas; i++){
+        for(int j= 0; j < imagem_input.n_colunas; j++){
+            
+            imagem_input.matriz[i][j] = img_nova.matriz[i][j];
+        }
+    }
 }
+
+
